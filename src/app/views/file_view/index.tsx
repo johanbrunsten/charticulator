@@ -80,7 +80,12 @@ export class CurrentChartView extends React.PureComponent<
     this.renderImage();
   }
   public async renderImage() {
-    const svg = await renderLocalSVG();
+    const store = this.props.store;
+    const svg = await renderLocalSVG(
+      store.dataset,
+      store.chart,
+      store.chartState
+    );
     this.setState({
       svgDataURL: stringToDataURL("image/svg+xml", svg),
     });

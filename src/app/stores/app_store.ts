@@ -438,7 +438,10 @@ export class AppStore extends BaseStore {
       const chart = await this.backend.get(this.currentChartID);
       this.updateChartState();
       chart.data.state = this.saveState();
-      const svg = stringToDataURL("image/svg+xml", await renderLocalSVG());
+      const svg = stringToDataURL(
+        "image/svg+xml",
+        await renderLocalSVG(this.dataset, this.chart, this.chartState)
+      );
       const png = await renderDataURLToPNG(svg, {
         mode: "thumbnail",
         thumbnail: [200, 150],
@@ -460,7 +463,10 @@ export class AppStore extends BaseStore {
   public async backendSaveChartAs(name: string) {
     this.updateChartState();
     const state = this.saveState();
-    const svg = stringToDataURL("image/svg+xml", await renderLocalSVG());
+    const svg = stringToDataURL(
+      "image/svg+xml",
+      await renderLocalSVG(this.dataset, this.chart, this.chartState)
+    );
     const png = await renderDataURLToPNG(svg, {
       mode: "thumbnail",
       thumbnail: [200, 150],

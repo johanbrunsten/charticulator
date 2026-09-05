@@ -68,12 +68,12 @@ export function renderChartToString(
   return ReactDOMServer.renderToString(<ChartDisplayView manager={manager} />);
 }
 
-export async function renderLocalSVG() {
-  const svg = await renderChartToLocalString(
-    this.dataset,
-    this.chart,
-    this.chartState
-  );
+export async function renderLocalSVG(
+  dataset: Dataset.Dataset,
+  chart: Specification.Chart,
+  chartState: Specification.ChartState
+) {
+  const svg = await renderChartToLocalString(dataset, chart, chartState);
   return '<?xml version="1.0" standalone="no"?>' + svg;
 }
 

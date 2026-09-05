@@ -42,7 +42,11 @@ export default function (REG: ActionHandlerRegistry<AppStore, Actions.Action>) {
     (async () => {
       // Export as vector graphics
       if (action.type == "svg") {
-        const svg = await renderLocalSVG();
+        const svg = await renderLocalSVG(
+          this.dataset,
+          this.chart,
+          this.chartState
+        );
         const blob = new Blob([svg], { type: "image/svg;charset=utf-8" });
         if (this.onExportTemplateCallback != null) {
           if (this.onExportTemplateCallback(action.type, blob)) {
@@ -55,7 +59,7 @@ export default function (REG: ActionHandlerRegistry<AppStore, Actions.Action>) {
       if (action.type == "png" || action.type == "jpeg") {
         const svgDataURL = stringToDataURL(
           "image/svg+xml",
-          await renderLocalSVG()
+          await renderLocalSVG(this.dataset, this.chart, this.chartState)
         );
         renderDataURLToPNG(svgDataURL, {
           mode: "scale",
