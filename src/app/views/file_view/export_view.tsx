@@ -95,7 +95,9 @@ export class ExportImageView extends React.Component<
             icon={<ArrowExportRegular />}
             // styles={primaryButtonStyles}
             onClick={() => {
-              new Actions.Export("png", { scale: this.getScaler() });
+              this.props.store.dispatcher.dispatch(
+                new Actions.Export("png", { scale: this.getScaler() })
+              );
             }}
           >
             {strings.fileExport.typePNG}
