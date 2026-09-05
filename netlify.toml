@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # The postinstall script installs Playwright's Chromium for e2e tests,
+  # which needs root/apt to install OS deps — not available (and not
+  # needed) in Netlify's build environment for a static site build.
+  NPM_FLAGS = "--ignore-scripts"
+  NODE_VERSION = "20"
