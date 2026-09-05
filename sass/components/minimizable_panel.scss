@@ -43,6 +43,7 @@
       height: $header-height;
       line-height: $header-height;
       font-size: 16px;
+      letter-spacing: -0.01em;
       padding-left: 5px;
       cursor: pointer;
 
@@ -55,10 +56,12 @@
         filter: invert(30%);
       }
 
-      &:hover {
-        background-color: $gray-230;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background-color: #fafafa;
 
-        // @include shadow-focused;
+          // @include shadow-focused;
+        }
       }
 
       transition: background-color $transition-default,

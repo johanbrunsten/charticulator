@@ -222,10 +222,10 @@ li::marker {
         padding-right: 10px;
         padding-bottom: 4px;
         background: $gray-230;
-        border-bottom: $panel-border-width solid $panel-border-color;
+        border-bottom: $panel-border-width solid $gray-210;
         border-left: $panel-border-width solid $panel-border-color;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         // z-index: 9;
-        // box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
       }
 
       &-toolbar-vertical {

@@ -60,11 +60,11 @@ $nested-chart-header-color: rgb(165, 185, 209);
 
 // Shadows
 @mixin shadow-ambient {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
 }
 
 @mixin shadow-focused {
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
 }
 
 @mixin shadow-focused-right {

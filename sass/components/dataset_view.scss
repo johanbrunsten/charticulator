@@ -93,8 +93,8 @@
       line-height: $item-height;
       @include shadow-ambient;
       margin-bottom: 6px;
-      border-radius: 2px;
-      border: 1px $gray-160 solid;
+      border-radius: 3px;
+      border: 1px #d1d1d1 solid;
       // background: $color-well;
 
       transition: box-shadow $transition-default,
@@ -133,9 +133,11 @@
         flex-grow: 0;
       }
 
-      &:hover {
-        // background: $gray-230;
-        @include shadow-focused;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          // background: $gray-230;
+          @include shadow-focused;
+        }
       }
       &.is-active {
         background: $color-primary;

@@ -90,11 +90,13 @@
       line-height: 24px;
     }
 
-    &:hover {
-      background: lighten($color-well, 5%);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: lighten($color-well, 5%);
+      }
     }
 
-    transition: box-shadow $transition-default,
+    transition: transform $transition-press, box-shadow $transition-default,
       background-color $transition-default, border-color $transition-default;
 
     &:hover,
@@ -102,6 +104,10 @@
     &:active,
     &.dragging {
       @include shadow-focused;
+    }
+
+    &:active {
+      transform: scale(0.96);
     }
 
     &.is-active,
@@ -123,7 +129,7 @@
     border-radius: 2px;
     background: $color-well;
 
-    transition: box-shadow $transition-default,
+    transition: transform $transition-press, box-shadow $transition-default,
       background-color $transition-default, border-color $transition-default;
 
     &:hover,
@@ -131,6 +137,10 @@
     &:active,
     &.dragging {
       @include shadow-focused;
+    }
+
+    &:active {
+      transform: scale(0.96);
     }
 
     &.is-active,
@@ -212,11 +222,13 @@
 
     // @include shadow-ambient;
 
-    &:hover {
-      background: lighten($primary-button-color, 5%);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: lighten($primary-button-color, 5%);
+      }
     }
 
-    transition: box-shadow $transition-default,
+    transition: transform $transition-press, box-shadow $transition-default,
       background-color $transition-default, border-color $transition-default;
 
     &:hover,
@@ -224,6 +236,10 @@
     &:active,
     &.is-dragging {
       @include shadow-focused;
+    }
+
+    &:active {
+      transform: scale(0.96);
     }
 
     &.is-active,
@@ -252,11 +268,25 @@
     @include icon-size(20px, 2px);
     @include icon-invert(50%);
     color: $gray-080;
+    // Expand the click/tap target to 32px while keeping the 24px visual
+    // footprint: content-box + symmetric padding/negative-margin so layout
+    // (siblings, container width) is unaffected.
+    box-sizing: content-box;
+    padding: 4px;
+    margin: -4px;
 
-    transition: filter $transition-default, box-shadow $transition-default,
-      background-color $transition-default, border-color $transition-default;
+    transition: transform $transition-press, filter $transition-default,
+      box-shadow $transition-default, background-color $transition-default,
+      border-color $transition-default;
 
-    &:hover,
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        @include icon-invert(0%);
+        color: $gray-000;
+      }
+    }
+
     &.is-active,
     &:active,
     &.is-dragging {
@@ -272,6 +302,11 @@
       @include icon-invert(0%);
       color: $gray-000;
     }
+
+    &:active {
+      transform: scale(0.96);
+    }
+
     display: inline-block;
     background: none;
   }
@@ -314,8 +349,12 @@
       margin-left: 8px;
     }
 
-    &:hover {
-      background: $color-primary-light;
+    transition: transform $transition-press,
+      background-color $transition-default;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: $color-primary-light;
+      }
     }
     &.is-active {
       background: $color-primary;
@@ -323,6 +362,9 @@
       .el-svg-icon:last-child {
         filter: invert(100%);
       }
+    }
+    &:active {
+      transform: scale(0.96);
     }
   }
 
@@ -335,10 +377,14 @@
       filter: invert(100%);
       @include disable-user-drag;
     }
-    &:hover {
-      background: $theme-hover-background;
-      .el-svg-icon {
-        filter: invert(100%);
+    transition: transform $transition-press,
+      background-color $transition-default;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: $theme-hover-background;
+        .el-svg-icon {
+          filter: invert(100%);
+        }
       }
     }
     &.is-active,
@@ -347,6 +393,9 @@
       .el-svg-icon {
         filter: invert(100%);
       }
+    }
+    &:active {
+      transform: scale(0.96);
     }
   }
 
@@ -369,10 +418,14 @@
     pointer-events: all;
     touch-action: none;
     cursor: pointer;
-    &:hover {
-      background: $theme-hover-background;
-      .el-svg-icon {
-        filter: invert(100%);
+    transition: transform $transition-press,
+      background-color $transition-default;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: $theme-hover-background;
+        .el-svg-icon {
+          filter: invert(100%);
+        }
       }
     }
     &.is-active,
@@ -381,6 +434,9 @@
       .el-svg-icon {
         filter: invert(100%);
       }
+    }
+    &:active {
+      transform: scale(0.96);
     }
   }
 
@@ -411,12 +467,16 @@
     touch-action: none;
     cursor: pointer;
 
-    &:hover {
-      background: $theme-hover-background;
-      .el-svg-icon {
-        filter: invert(100%);
+    transition: transform $transition-press,
+      background-color $transition-default;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: $theme-hover-background;
+        .el-svg-icon {
+          filter: invert(100%);
+        }
+        color: $white;
       }
-      color: $white;
     }
 
     &.is-active,
@@ -425,6 +485,9 @@
       .el-svg-icon {
         filter: invert(100%);
       }
+    }
+    &:active {
+      transform: scale(0.96);
     }
     &.is-disabled {
       color: $gray-180;
@@ -465,13 +528,20 @@
     touch-action: none;
     cursor: pointer;
 
-    &:hover {
-      background: $theme-hover-background;
-      color: $white;
+    transition: transform $transition-press,
+      background-color $transition-default;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: $theme-hover-background;
+        color: $white;
+      }
     }
     &.is-active,
     &:active {
       background: $color-header-active;
+    }
+    &:active {
+      transform: scale(0.96);
     }
   }
 }

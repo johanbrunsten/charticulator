@@ -8,3 +8,14 @@
 @import "fonts.scss";
 
 @import "scrollbar.scss";
+
+// Global motion accessibility: keep color/opacity feedback, drop
+// transform-based movement (press-scale, overshoot) for users who asked
+// for reduced motion.
+@media (prefers-reduced-motion: reduce) {
+  * {
+    &:active {
+      transform: none !important;
+    }
+  }
+}

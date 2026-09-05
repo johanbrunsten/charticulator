@@ -237,7 +237,8 @@
     polygon,
     line,
     text {
-      transition: all $transition-default;
+      transition: fill $transition-default, stroke $transition-default,
+        opacity $transition-default;
     }
   }
 
