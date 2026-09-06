@@ -241,7 +241,7 @@ export const FluentUIToolbar: React.FC<{
             {
               classID: "guide-coordinator-polar",
               title: strings.toolbar.guidePolar,
-              icon: "guide-coordinator-polar",
+              icon: "guide/coordinator-polar",
               options: "",
             },
           ]}
@@ -391,19 +391,19 @@ export const FluentUIToolbar: React.FC<{
           {
             classID: "guide-coordinator-x",
             title: strings.toolbar.guideX,
-            icon: "CharticulatorGuideX",
+            icon: "guide/coordinator-x",
             options: "",
           },
           {
             classID: "guide-coordinator-y",
             title: strings.toolbar.guideY,
-            icon: "CharticulatorGuideY",
+            icon: "guide/coordinator-y",
             options: "",
           },
           {
             classID: "guide-coordinator-polar",
             title: strings.toolbar.guidePolar,
-            icon: "CharticulatorGuideCoordinator",
+            icon: "guide/coordinator-polar",
             options: "",
           },
         ]}

@@ -136,7 +136,16 @@ addSVGIcon(
   require("resources/icons/icons_toolbar-import-template.svg")
 );
 addSVGIcon("toolbar/back", require("resources/icons/icons_toolbar-back.svg"));
-addSVGIcon("toolbar/trash", require("resources/icons/icons_toolbar-trash.svg"));
+addSVGIcon(
+  ["toolbar/trash", "Delete"],
+  require("resources/icons/icons_toolbar-trash.svg")
+);
+// Aliases used by views that were written against Fluent UI icon names
+addSVGIcon(
+  "OpenFolderHorizontal",
+  require("resources/icons/icons_toolbar-open.svg")
+);
+addSVGIcon(["Cross", "toolbar/cross"], require("resources/icons/icons_cross.svg"));
 
 addSVGIcon("app-icon", require("resources/icons/app_icon.svg"));
 
@@ -169,7 +178,10 @@ addSVGIcon(
   "GripperBarVertical",
   require("resources/icons/icons_scaffold-ywrap.svg")
 );
-addSVGIcon("scaffold/map", require("resources/icons/icons_scaffold-map.svg"));
+addSVGIcon(
+  ["scaffold/map", "plot-segment/map"],
+  require("resources/icons/icons_scaffold-map.svg")
+);
 
 addSVGIcon("Line", require("resources/icons/icons_plot-line.svg"));
 addSVGIcon("plot/curve", require("resources/icons/icons_plot-curve.svg"));

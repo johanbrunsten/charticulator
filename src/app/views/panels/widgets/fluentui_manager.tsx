@@ -107,7 +107,7 @@ import { CustomCollapsiblePanel } from "./controls/custom_collapsible_panel";
 import { FluentUIReorderStringsValue } from "./controls/fluentui_reorder_string_value";
 import { InputColorGradient } from "./controls/input_gradient";
 import { getDropzoneAcceptTables } from "./utils";
-import { GroupListRegular } from "@fluentui/react-icons";
+import { GroupListRegular, SearchRegular } from "@fluentui/react-icons";
 
 export type OnEditMappingHandler = (
   attribute: string,
@@ -189,7 +189,7 @@ export class FluentUIWidgetManager
           style={{
             width: "100%",
           }}
-          contentBefore={<SVGImageIcon url={R.getSVGIcon("Search")} />}
+          contentBefore={<SearchRegular />}
           autoComplete="off"
           defaultValue={this.store.searchString}
         />
