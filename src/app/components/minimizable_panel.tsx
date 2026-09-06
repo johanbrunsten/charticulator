@@ -53,6 +53,9 @@ export const MinimizablePanelView: React.FC<
                     }}>{title}</Label>
                 </>
             ) : null}
+            {/* Render the drawer only while open: the closed state must not
+                keep the (fixed-width) drawer element in the layout. */}
+            {isOpen ? (
             <InlineDrawer
                 {...restoreFocusSourceAttributes}
                 open={isOpen}
@@ -92,6 +95,7 @@ export const MinimizablePanelView: React.FC<
                     {children}
                 </DrawerBody>
             </InlineDrawer>
+            ) : null}
         </div>
       </>
     );
